@@ -2,21 +2,20 @@ header{
     width: 100%;
     height: 90px;
     background: black;
-    background-attachment: fixed;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
     .navbar-items{
-        background-color: rgba(230, 220, 220, 0.45);
+        background-color: rgba(9, 7, 7, 0.45);
         width: 100%;
-        max-width: 1500px;
+        max-width: 1200px;
         display: flex;
         justify-content: space-between;
         align-items: relative;
-        font-size: 18px;
+        font-size: 19px;
        }
         .nav-menu{
             display: flex;
@@ -25,9 +24,9 @@ header{
             align-items: center;
             list-style: none;
             width: 20vw;
-            margin-right: 10px;
+            margin-right: 5px;
             .nav-link {
-                color:#676c79;
+                color:#fdfdfd;
                 text-decoration: none;
                 padding: 5px 10px;
             }

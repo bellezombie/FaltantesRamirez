@@ -3,11 +3,10 @@ export const CartContext = createContext();
 
 export default function CartContextC({children}) {
     
-   const [cart, setCart  ] = useState ([])
-   const [totalCount, setTotalCount] = useState (0)
-   const [totalPrice, setTotalPrice] = useState (0)
-   
-
+   const [cart, setCart  ] = useState ([]);
+   const [totalCount, setTotalCount] = useState (0);
+   const [totalPrice, setTotalPrice] = useState (0);
+  
     function addToCart(item, totalCount){
     const auxCart = [...cart];
     let onCart = false;
@@ -17,9 +16,7 @@ export default function CartContextC({children}) {
             onCart = true;
         }
      }
-     if(!onCart){
-        auxCart.push({...item, totalCount})
-     }
+     if(!onCart){ auxCart.push({...item, totalCount})  }
     }  
     
    useEffect (()=> {
@@ -32,5 +29,4 @@ export default function CartContextC({children}) {
             {children}
         </CartContext.Provider>
     )
-
 }

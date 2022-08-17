@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import { CartContext } from '../CartContext/CartContextC'; 
 
 export default function CartWidget() {
-  const { totalCount } = useContext(CartContext);
+  const { cart, totalCount } = useContext(CartContext);
 
   return (
     <div> 
     <Link to={'/cart'} > 
-       <BsCartCheck size={28}/> {totalCount}
+       <BsCartCheck size={28}/> {cart}
     </Link>
   </div>
   )

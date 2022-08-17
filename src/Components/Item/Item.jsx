@@ -12,8 +12,8 @@ export default function Item({item:{id, name, image, price,stock}}) {
             <h3>{name}</h3>
             <p>{price}</p>
             <p>Stock: {stock}</p>
-            <Link to={'/item/'+item.id}><button>Ver Detalles</button></Link>
-            </Link>   
+           <button>Ver Detalles</button>
+      </Link>   
         </div>
     </>
   );

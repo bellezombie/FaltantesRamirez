@@ -11,13 +11,13 @@ export default function NavBar() {
                 {/*  <img src={logo} alt={"logo"}/> no te olvides de agregar*/}
                 </Link>
         <ul className="nav-menu">
-            <li><Link className="nav-link" to={"/"} ></Link></li>
-            <li><Link className="nav-link" to={"/category/Hardcore"} ></Link></li>
-            <li><Link className="nav-link" to={"/category/Britpop"} ></Link></li>
-            <li><Link className="nav-link" to={"/category/Stonerrock"} ></Link></li>  
+            <li><Link className="nav-link" to={"/"} >General</Link></li>
+            <li><Link className="nav-link" to={"/category/Hardcore"} >Hardcore</Link></li>
+            <li><Link className="nav-link" to={"/category/Britpop"} >Britpop</Link></li>
+            <li><Link className="nav-link" to={"/category/Stonerrock"} >StoneR</Link></li>  
         </ul>
-        <Link to='/cart' > <CartWidget /> </Link>
-        </nav>
+                 </nav>
+        <CartWidget /> 
      </header>
   )
 }

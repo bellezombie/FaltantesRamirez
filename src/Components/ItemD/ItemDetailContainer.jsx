@@ -6,8 +6,8 @@ import {doc, getDoc, getFirestore} from 'firebase/firestore';
 
 export default function ItemDetailContainer() {
 
-  const[product, setProduct] = useState([]);
-  const{idItem} = useParams();
+  const[product, setProduct] = useState({});
+  const{idItem} = useParams(); 
   
   useEffect(() =>{
     const db = getFirestore();
@@ -16,9 +16,9 @@ export default function ItemDetailContainer() {
   getDoc(refDoc).then((item) => {
     const auxItem = {
       id: item.id,
-      ...item.data() 
+      ...item.data(), 
     }
-        setProduct(auxItem);
+      setProduct(auxItem);
   });
   
 }, [idItem]);
