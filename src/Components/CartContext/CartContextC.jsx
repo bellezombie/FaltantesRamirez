@@ -7,21 +7,26 @@ export default function CartContextC({children}) {
    const [totalCount, setTotalCount] = useState (0);
    const [totalPrice, setTotalPrice] = useState (0);
   
-    function addToCart(item, totalCount){
+    function addToCart(item, count){
     const auxCart = [...cart];
     let onCart = false;
     for (let i = 0; i < auxCart.length; i++){ 
         if (auxCart[i].id == item.id){
-            auxCart[i].totalCount = auxCart[i].totalCount + totalCount;
+            auxCart[i].count = auxCart[i].count + count;
             onCart = true;
         }
      }
-     if(!onCart){ auxCart.push({...item, totalCount})  }
+     if(!onCart){ auxCart.push({...item, count})  }
+     setCart(auxCart);
     }  
-    
+
     function delFCart(id){
      setCart(cart.filter(item=> item.id != id));
     }
+
+    function delAll({}){
+        setCart([ ]);
+       }
 
    useEffect (()=> {
     setTotalCount(cart.reduce((acc, item)=> acc+item.count, 0));
@@ -29,7 +34,7 @@ export default function CartContextC({children}) {
    }, [cart])
 
     return(
-        <CartContext.Provider value = {{ cart, addToCart, totalCount, totalPrice, delFCart }}>
+        <CartContext.Provider value = {{ cart, addToCart, totalCount, totalPrice, delFCart, delAll }}>
             {children}
         </CartContext.Provider>
     )

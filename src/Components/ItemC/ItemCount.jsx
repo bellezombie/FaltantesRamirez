@@ -7,7 +7,7 @@ export default function ItemCount({product}) {
 
    const [count, setCount ] = useState(0);
    const [removeB, setRemoveB] = useState(false);
-   const { addToCart,  totalCount} = useContext(CartContext);
+   const { addToCart } = useContext(CartContext);
 
     function resT  ()  {   if (count>=2)            {  setCount(count-1); } }
     function sumA  ()  {   if (count<product.stock) {  setCount(count+1); } }
@@ -22,7 +22,7 @@ export default function ItemCount({product}) {
     </div>
     <div>
     {removeB? 
-       (<>'Producto agregado!' <Link to="/" ><button>Seguir comprando</button></Link> </>
+       (<>Producto agregado! <Link to="/" ><button>Seguir comprando</button></Link> </>
        ) : (
              <button onClick={onAdd} > Agregar al carrito </button> ) }
     </div>
