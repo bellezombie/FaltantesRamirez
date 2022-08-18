@@ -1,12 +1,23 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { Link } from 'react-router-dom';
 import { CartContext } from '../CartContext/CartContextC'; 
-import {useContext} from 'react';
 
 
 export default function Cart() {
-  // const {cart, to } = useContext(CartContext);
+  const {cart, totalCount, totalPrice, delFCart} = useContext(CartContext);
 
   return (
-    <div>Cart</div>
+    <>
+    {cart.map((item) => (
+    <div key={item.id}>
+      {item.name + " " + item.count}{" "}
+      <span onClick={() => delFCart(item.id)}> X </span>
+    </div>
+    ))} 
+    <div>
+      En el carrito tenes un total de {totalCount} productos, con un total de {totalPrice}.
+    </div>
+    <Link to="/checkout">Finalizar Compra</Link>
+    </>
   )
 }

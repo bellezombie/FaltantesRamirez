@@ -1,16 +1,17 @@
 import React, { useContext } from 'react'
 import {BsCartCheck} from 'react-icons/bs';
-import { Link } from 'react-router-dom'
 import { CartContext } from '../CartContext/CartContextC'; 
+import { Link } from 'react-router-dom';
+import './cartWidget.scss';
 
 export default function CartWidget() {
-  const { cart, totalCount } = useContext(CartContext);
-
+  const { totalCount } = useContext(CartContext);
+  
   return (
-    <div> 
-    <Link to={'/cart'} > 
-       <BsCartCheck size={28}/> {cart}
+    <Link to= {'/cart'} className='cart-widget'>
+       <div className="cart-icon">
+       <BsCartCheck size={20}/><span>{totalCount}</span>
+       </div>
     </Link>
-  </div>
   )
 }

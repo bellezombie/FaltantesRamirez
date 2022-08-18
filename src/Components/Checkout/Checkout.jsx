@@ -1,15 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import { CartContext } from '../CartContext/CartContextC';
 
 export default function Checkout() {
-  const [name,setName] = useState ('');
-  const [cel,setCel] = useState ('');
-  const [email,setEmail] = useState ('');
+  const { cart, totalPrice } = useContext (CartContext);
+  const [name,setName] = useState ("");
+  const [cel,setCel] = useState ("");
+  const [email,setEmail] = useState ("");
 
   function eCompra(){
-    
-  const order = {buyer: {} /*item:[...cart]*/, totalCount}
-  /*{ buyer: { name, phone, email }, items: [{id, title, price}], total  }*/
- console.log(order)
+  const order = {buyer: {name, cel, email}, cart, totalPrice}
   }
 
   return (

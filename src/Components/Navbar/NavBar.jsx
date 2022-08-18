@@ -15,9 +15,9 @@ export default function NavBar() {
             <li><Link className="nav-link" to={"/category/Hardcore"} >Hardcore</Link></li>
             <li><Link className="nav-link" to={"/category/Britpop"} >Britpop</Link></li>
             <li><Link className="nav-link" to={"/category/Stonerrock"} >StoneR</Link></li>  
+            <li><CartWidget /></li>
         </ul>
-                 </nav>
-        <CartWidget /> 
+         </nav>        
      </header>
   )
 }

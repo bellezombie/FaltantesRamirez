@@ -7,7 +7,7 @@ export default function ItemCount({product}) {
 
    const [count, setCount ] = useState(0);
    const [removeB, setRemoveB] = useState(false);
-   const { addToCart } = useContext(CartContext);
+   const { addToCart,  totalCount} = useContext(CartContext);
 
     function resT  ()  {   if (count>=2)            {  setCount(count-1); } }
     function sumA  ()  {   if (count<product.stock) {  setCount(count+1); } }

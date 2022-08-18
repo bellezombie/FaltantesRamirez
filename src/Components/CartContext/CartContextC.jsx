@@ -19,13 +19,17 @@ export default function CartContextC({children}) {
      if(!onCart){ auxCart.push({...item, totalCount})  }
     }  
     
+    function delFCart(id){
+     setCart(cart.filter(item=> item.id != id));
+    }
+
    useEffect (()=> {
     setTotalCount(cart.reduce((acc, item)=> acc+item.count, 0));
-    setTotalPrice(cart.reduce((acc, item)=> acc+item.count, 0));
+    setTotalPrice(cart.reduce((acc, item)=> acc+ item.count * item.price, 0));
    }, [cart])
 
     return(
-        <CartContext.Provider value = {{ cart, addToCart, totalCount, totalPrice }}>
+        <CartContext.Provider value = {{ cart, addToCart, totalCount, totalPrice, delFCart }}>
             {children}
         </CartContext.Provider>
     )
