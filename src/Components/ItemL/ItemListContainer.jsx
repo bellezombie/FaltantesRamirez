@@ -2,67 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 /* import {getPhardcore, getPhardcoreByCat} from '../../../products' */
 import ItemList from './ItemList';
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import Loading from '../Loader/Loading';
 
 export default function ItemListContainer() {
+  const [productos, setProductos] = useState([]);
+  const { idCategory } = useParams();
+  const [loading, setLoading] = useState(true)
 
-  const[productos, setProductos] = useState([]);
-  const{idCategory} = useParams();
-  
-  useEffect(() =>{
+  useEffect(() => {
     const db = getFirestore();
     let myCollection;
 
-    if(idCategory == undefined){
-    myCollection = collection (db, "products");
-  }else {
-    myCollection = query(
-      collection(db, "products"),
-      where("idCategory", "==" , idCategory)
-      );
-  }
+    if (idCategory == undefined) {
+      myCollection = collection(db, 'products');
+      
+    } else {
+      myCollection = query(collection(db, 'products'), where('idCategory', '==', idCategory));
+      setLoading(false);
+    }
 
-  getDocs(myCollection).then((data)=>{
-    const auxProducts = data.docs.map(product=> ({
-      id: product.id,
-      ...product.data() }));
-    
+    getDocs(myCollection).then((data) => {
+      const auxProducts = data.docs.map((product) => ({
+        id: product.id,
+        ...product.data(),
+      }));
       setProductos(auxProducts);
     });
+  }, [idCategory]);
 
-}, [idCategory]);
-
-  return (<ItemList productos={productos}/> )
-
+  return <>{loading ? <Loading /> : <ItemList productos={productos} />}</>;
 }
-
-/* 
-*******************Cuandoestabaharcodeado****************************
-export default function ItemListContainer() {
-    const[productos, setProductos] = useState([]);
-    const {idCaT} = useParams();
-    
-    console.log(idCaT)
-    
-    useEffect(() =>{
-      setTimeout(()=>{   },2000);
-
-  if(!idCaT) {
-    getPhardcore().then(respuesta=>{
-      setProductos(respuesta)
-      console.log(productos)
-  
-    })
-  }else{
-    getPhardcoreByCat(idCaT).then(respuesta=>{
-      setProductos(respuesta)
-      console.log(productos)
-  
-    })
-  }
-    },[idCaT]); 
-
-  return (<ItemList productos={productos}/> )
-}
-
-*/

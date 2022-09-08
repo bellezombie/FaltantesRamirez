@@ -1,5 +1,49 @@
-/*
+.cartTotal {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(158, 153, 153);
+  font-size: 30px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .N {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+  }
+  .X {
+    cursor: pointer;
+    align-content: center;
+    color: red;
+  }
 
-Agregando dentro de poco con toda la estetica final
-
-*/
+  .Cart {
+    display: flex;
+    padding-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+  }
+  button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: #fff;
+    background-color: rgb(17, 17, 18);
+    text-align: center;
+    font-family: 'Courier Prime', monospace;
+    cursor: pointer;
+    width: 50%;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 10px;
+    &:hover,
+    &:visited,
+    &:link,
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}

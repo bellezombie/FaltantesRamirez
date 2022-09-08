@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@300&display=swap');
+$typo1: 'Courier Prime', monospace;
+$typo2: 'Antonio', sans-serif;
+$Cpri: rgba(13, 0, 0, 5);
+$Csec: rgb(164, 88, 166, 65);
+$Cter: rgba(13, 0, 0, 5);
+
+body {
+  .containerTo {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 200px;
+  }
+  font-family: $typo1;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  background-color: $Cpri;
+  transition: 0.5s;
+  background-image: url('https://static.wixstatic.com/media/1e5ce4_123de8ec1441419cafe8554959436084~mv2.png');
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  .mUS {
+    width: 80%;
+    display: center;
+    background-color: $Cpri;
+    margin: auto;
+    .US {
+      margin: 15px 15px 15px 15px;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+    .ius {
+      height: 350px;
+      margin-left: 15px;
+      padding: 50px 50px 15px 50px;
+    }
+    .pUS {
+      font-size: 15px;
+      width: 40%;
+      color: $Csec;
+      background-color: $Cpri;
+      display: inline-block;
+      display: right;
+      margin-left: 15px;
+      margin-bottom: 50px;
+      padding: 0px 30px 30px 30px;
+    }
+  }
+}

@@ -5,7 +5,7 @@ import './itemCount.scss'
 
 export default function ItemCount({product}) {
 
-   const [count, setCount ] = useState(0);
+   const [count, setCount ] = useState(1);
    const [removeB, setRemoveB] = useState(false);
    const { addToCart } = useContext(CartContext);
 
@@ -15,16 +15,16 @@ export default function ItemCount({product}) {
 
   return (
     <div className="count">
-    <div>
-      <button onClick={resT} > - </button> 
+    <div className="grid">
+      <button className="B" onClick={resT} > - </button> 
       <p>{count}</p> 
-      <button onClick={sumA} > + </button>
+      <button className="B" onClick={sumA} > + </button>
     </div>
-    <div>
+    <div className="grid2">
     {removeB? 
-       (<>Producto agregado! <Link to="/" ><button>Seguir comprando</button></Link> </>
+       (<>Producto agregado!<br/> <Link to="/" ><button className="B">Seguir comprando</button></Link> </>
        ) : (
-             <button onClick={onAdd} > Agregar al carrito </button> ) }
+             <button className="B" onClick={onAdd} > Agregar al carrito </button> ) }
     </div>
    </div>
   )

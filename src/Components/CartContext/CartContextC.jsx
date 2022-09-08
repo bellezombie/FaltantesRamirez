@@ -27,13 +27,17 @@ export default function CartContextC({children}) {
     function delAll({}){
         setCart([ ]);
        }
-
-   useEffect (()=> {
-    setTotalCount(cart.reduce((acc, item)=> acc+item.count, 0));
-    setTotalPrice(cart.reduce((acc, item)=> acc+ item.count * item.price, 0));
-   }, [cart])
-
-    return(
+    
+       useEffect (()=> {
+        setTotalCount(cart.reduce((acc, item)=> acc+item.count, 0));
+        setTotalPrice(cart.reduce((acc, item)=> acc+ item.count * item.price, 0));
+        if (JSON.parse(localStorage.getItem('cart'))) {
+            setCart(JSON.parse(localStorage.getItem('cart')))
+            setCount(cartLenght(JSON.parse(localStorage.getItem('cart'))))
+          }
+       }, [cart])
+    
+            return(
         <CartContext.Provider value = {{ cart, addToCart, totalCount, totalPrice, delFCart, delAll }}>
             {children}
         </CartContext.Provider>
