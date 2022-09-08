@@ -1,6 +1,6 @@
 ## RRecords por Belle Ramirez
 
-### El proyecto final lo podes apreciar desde [aca]()
+### El proyecto final lo podes apreciar desde [aca](https://rrecords-store.web.app/category/Hardcore)
 
 #
 
